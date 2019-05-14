@@ -18,14 +18,11 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-
-
 /**
  *
- * @author BLUE_LIGHT
+ * @author jonav
  */
-public class Registro extends JFrame implements ActionListener{
-    
+public class VerificarUsuario extends JFrame implements ActionListener {
     private JButton Cancelar;
     private JButton Ingresar;
     private JLabel titulo;
@@ -34,11 +31,11 @@ public class Registro extends JFrame implements ActionListener{
     private JTextField nombre;
 
     
-    public Registro()
+    public void Error()
     {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setTitle("Shat");
-        this.getContentPane().setBackground(new Color(42,56,59));
+        this.setTitle("Error");
+        this.getContentPane().setBackground(new Color(255,0,0));
         
         
         Ingresar=new JButton("Registrar");
@@ -53,24 +50,11 @@ public class Registro extends JFrame implements ActionListener{
                 String contrasena = password.getText();
                 String nom = nombre.getText();
                 int uno = 1;
-                if(nombreusuario.equals ("Username") || contrasena.equals ("Password") || nom.equals ("Nombre"))
-                {
-                    VerificarUsuario verif = new VerificarUsuario();
-                    verif.Error();
-                    //error.setVisible(true);
-                }
-                else
-                {
-                    VerificarUsuario verif = new VerificarUsuario();
-                    verif.Exito();
-                    Usuario user = new Usuario();
-                    user.InsertarUsuario(nombreusuario, contrasena, nom, uno);
-                }    
-
+                
             }
         });
         
-        titulo=new JLabel("Registro", JLabel.CENTER);
+        titulo=new JLabel("Error con el registro o algo así", JLabel.CENTER);
         titulo.setFont(new Font("Consolas", Font.BOLD, 20));
         titulo.setForeground(Color.white);
         
@@ -120,6 +104,49 @@ public class Registro extends JFrame implements ActionListener{
         datos.setAutoCreateGaps(true);
         setLayout(datos);
         pack();
+        setVisible(true);
+    }
+    
+    //éxito
+        public void Exito()
+    {
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setTitle("Error");
+        this.getContentPane().setBackground(new Color(51,164,61));
+        
+        Ingresar=new JButton("Aceptar");
+        Ingresar.setBackground(new Color(145,41,174));
+        Ingresar.setFont(new Font("Consolas", Font.BOLD, 20));
+        Ingresar.setForeground(Color.white);
+        Ingresar.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+
+        
+        titulo=new JLabel("Registro exitoso", JLabel.CENTER);
+        titulo.setFont(new Font("Arial", Font.BOLD, 20));
+        titulo.setForeground(Color.white);
+        
+ 
+        GroupLayout datos=new GroupLayout(this.getContentPane());
+        
+        datos.setHorizontalGroup(
+                datos.createParallelGroup()
+                    .addComponent(titulo, 80, 400, 1200)
+                    .addComponent(Ingresar, 80, 80, 1200)
+                                                           
+        );
+        
+        
+        datos.setVerticalGroup(
+                datos.createSequentialGroup()
+                    .addComponent(titulo, 10, 40, 80)
+                    .addComponent(Ingresar, 10, 40, 80)
+                                                           
+        );
+        datos.setAutoCreateContainerGaps(true);
+        datos.setAutoCreateGaps(true);
+        setLayout(datos);
+        pack();
+        setVisible(true);
     }
 
     @Override

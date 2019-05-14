@@ -21,6 +21,7 @@ public class Shat {
         Login formulario = new Login();
         
         formulario.setVisible(true);
+        
     }
     
 }
