@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Ejemplo :3</title>
+    </h:head>
+    <h:body>
+        <h:form>  
+            <p:growl id="messages"/>
+
+            <p:menubar style="background: #EEE">
+                <p:menuitem value="Bienvenido" url="/" style="font-size: 25px;" />
+
+
+                <p:submenu label="Proyectos" icon="pi pi-cog">
+                    <p:submenu label="Ajax" icon="pi pi-refresh">
+                        <p:menuitem value="Save" action="#{menuView.save}" icon="pi pi-save" update="messages"/>
+                        <p:menuitem value="Update" action="#{menuView.update}" icon="pi pi-refresh" update="messages"/>
+                    </p:submenu>
+                    <p:submenu label="Categorías" icon="pi pi-clone">
+                        <p:menuitem value="Delete" action="#{menuView.delete}" icon="pi pi-times" update="messages" ajax="false"/>
+                    </p:submenu>
+                </p:submenu>
+
+                <p:submenu label="Categorías" icon="pi pi-cog">
+                    <p:submenu label="Ajax" icon="pi pi-refresh">
+                        <p:menuitem value="Save" action="#{menuView.save}" icon="pi pi-save" update="messages"/>
+                        <p:menuitem value="Update" action="#{menuView.update}" icon="pi pi-refresh" update="messages"/>
+                    </p:submenu>
+                    <p:submenu label="Categorías" icon="pi pi-clone">
+                        <p:menuitem value="Delete" action="#{menuView.delete}" icon="pi pi-times" update="messages" ajax="false"/>
+                    </p:submenu>
+                </p:submenu>
+
+                <p:submenu label="Historial" icon="pi pi-file">
+                    <p:submenu label="New" icon="pi pi-briefcase">
+                        <p:menuitem value="Project" url="#" />
+                        <p:menuitem value="Other" url="#" />
+                    </p:submenu>
+                    <p:menuitem value="Open" url="#" />
+                    <p:separator />
+                    <p:menuitem value="Quit" url="#" />
+                </p:submenu>
+
+                <p:submenu label="Ayuda" icon="pi pi-question">
+                    <p:menuitem value="Contents" url="#" />
+                    <p:submenu label="Search" icon="pi pi-search">
+                        <p:submenu label="Text">
+                            <p:menuitem value="Workspace" url="#" />
+                        </p:submenu>
+                        <p:menuitem value="File" url="#" />
+                    </p:submenu>
+                </p:submenu>
+
+
+                <p:menuitem value="Iniciar sesión" outcome="login.xhtml" icon="pi pi-times" />
+
+                <f:facet name="options">
+                    <p:inputText style="margin:1px 10px 1px 1px;" placeholder="Buscar..."/>
+                    <p:commandButton type="button" value="Buscar" />
+                </f:facet>
+            </p:menubar>
+        </h:form>
+
+
+
+
+
+
+
+        <div style="float: left; width: 15%;">
+            <h:form>
+                <p:panelMenu style="width: 100%;">
+                    <p:submenu label="Categoría 1">
+                        <p:menuitem value="Save" action="#{menuView.save}" icon="pi pi-save" style="background: #FFF" />
+                        <p:menuitem value="Update" action="#{menuView.update}"  icon="pi pi-refresh" />
+                    </p:submenu>
+                    <p:submenu label="Categoría 2">
+                        <p:menuitem value="Delete" action="#{menuView.delete}"  ajax="false" icon="pi pi-times"/>
+                    </p:submenu>
+                    <p:separator />
+                    <p:submenu label="Categoría 3" >
+                        <p:submenu label="Links" icon="pi pi-home">
+                            <p:submenu label="PrimeFaces" icon="pi pi-briefcase">
+                                <p:menuitem value="Home" url="http://www.primefaces.org" icon="pi pi-home" />
+                                <p:menuitem value="Docs" url="http://www.primefaces.org/documentation" icon="pi pi-file" />
+                                <p:menuitem value="Download" url="http://www.primefaces.org/downloads" icon="pi pi-arrow-down" />
+                                <p:menuitem value="Support" url="http://www.primefaces.org/support" icon="pi pi-briefcase" />
+                            </p:submenu>
+                        </p:submenu>
+                        <p:menuitem value="Mobile" icon="pi pi-mobile" />
+                    </p:submenu>
+                </p:panelMenu>
+            </h:form>
+            <p:button value="Crear nuevo proyecto" style="margin-right:20px; width: 100%; background: #70B85E; border: none; ">
+                <f:param name="Hola" value="10" />
+            </p:button>
+        </div>
+
+
+
+
+
+
+
+        <div style="float: right; width: 85%;">
+            <center>
+                <img src="https://www.meteorologiaenred.com/wp-content/uploads/2017/01/cielo.jpg" height="500px" width="100%"></img>
+                <p:contentFlow value="#{imagesView.images}" var="image" style="border: none;">
+                    <p:graphicImage value="#{image}" styleClass="content" > </p:graphicImage> 
+                    <h:link outcome="login.xhtml" value="#{image}" style="color: #000;" class="caption"/>
+                </p:contentFlow>
+            </center>
+        </div>
+
+
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+    </h:body>
+</html>
+
+

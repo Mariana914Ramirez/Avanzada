@@ -11,10 +11,10 @@
     <h:body>
         <h:form>  
             <p:growl id="messages"/>
-            
+
             <p:menubar style="background: #EEE">
                 <p:menuitem value="Bienvenido" url="/" style="font-size: 25px;" />
-                
+
 
                 <p:submenu label="Proyectos" icon="pi pi-cog">
                     <p:submenu label="Ajax" icon="pi pi-refresh">
@@ -25,7 +25,7 @@
                         <p:menuitem value="Delete" action="#{menuView.delete}" icon="pi pi-times" update="messages" ajax="false"/>
                     </p:submenu>
                 </p:submenu>
-                
+
                 <p:submenu label="Categorías" icon="pi pi-cog">
                     <p:submenu label="Ajax" icon="pi pi-refresh">
                         <p:menuitem value="Save" action="#{menuView.save}" icon="pi pi-save" update="messages"/>
@@ -35,7 +35,7 @@
                         <p:menuitem value="Delete" action="#{menuView.delete}" icon="pi pi-times" update="messages" ajax="false"/>
                     </p:submenu>
                 </p:submenu>
-                
+
                 <p:submenu label="Historial" icon="pi pi-file">
                     <p:submenu label="New" icon="pi pi-briefcase">
                         <p:menuitem value="Project" url="#" />
@@ -45,7 +45,7 @@
                     <p:separator />
                     <p:menuitem value="Quit" url="#" />
                 </p:submenu>
-                
+
                 <p:submenu label="Ayuda" icon="pi pi-question">
                     <p:menuitem value="Contents" url="#" />
                     <p:submenu label="Search" icon="pi pi-search">
@@ -55,8 +55,8 @@
                         <p:menuitem value="File" url="#" />
                     </p:submenu>
                 </p:submenu>
-                
-                
+
+
                 <p:menuitem value="Iniciar sesión" outcome="login.xhtml" icon="pi pi-times" />
 
                 <f:facet name="options">
@@ -65,13 +65,13 @@
                 </f:facet>
             </p:menubar>
         </h:form>
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
         <div style="float: left; width: 15%;">
             <h:form>
                 <p:panelMenu style="width: 100%;">
@@ -100,13 +100,13 @@
                 <f:param name="Hola" value="10" />
             </p:button>
         </div>
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
         <div style="float: right; width: 85%;">
             <center>
                 <img src="https://www.meteorologiaenred.com/wp-content/uploads/2017/01/cielo.jpg" height="500px" width="100%"></img>
@@ -116,8 +116,10 @@
                 </p:contentFlow>
             </center>
         </div>
-        
 
+
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
     </h:body>
 </html>
 

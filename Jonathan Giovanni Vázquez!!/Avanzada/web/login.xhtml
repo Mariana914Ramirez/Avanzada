@@ -69,7 +69,20 @@
         
         
         
-        <h1>Hola cx</h1>
-        <p:spinner />
+        <h:form>
+            <p:panelGrid id="grid" columns="3">
+                <p:outputLabel for="user">Usuario</p:outputLabel>
+                <p:inputText id="user" value="#{Usuario.correo}" size="20" required="true" requiredMessage="Campo obligatorio"/>
+                <p:message for="user" display="icon"/>
+                
+                
+                <p:outputLabel for="password">Contraseña</p:outputLabel>
+                <p:inputText id="password" type="password" value="#{Usuario.contrasena}" size="20" required="true" requiredMessage="Campo obligatorio"/>
+                <p:message for="password" display="icon"/>
+                
+                
+                <p:commandButton value="ingresar" action="#{Usuario.validaLogin()}" update="grid"/>
+            </p:panelGrid>
+        </h:form>
     </h:body>
 </html>

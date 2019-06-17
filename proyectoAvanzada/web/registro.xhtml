@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+     
+    <h:head>
+    </h:head>
+ 
+    <h:body>
+        <h:form>  
+            <p:growl id="messages"/>
+            
+            <p:menubar style="background: #EEE">
+                <p:menuitem value="Bienvenido" url="/" style="font-size: 25px;" />
+                
+
+                <p:submenu label="Proyectos" icon="pi pi-cog">
+                    <p:submenu label="Ajax" icon="pi pi-refresh">
+                        <p:menuitem value="Save" action="#{menuView.save}" icon="pi pi-save" update="messages"/>
+                        <p:menuitem value="Update" action="#{menuView.update}" icon="pi pi-refresh" update="messages"/>
+                    </p:submenu>
+                    <p:submenu label="Categorías" icon="pi pi-clone">
+                        <p:menuitem value="Delete" action="#{menuView.delete}" icon="pi pi-times" update="messages" ajax="false"/>
+                    </p:submenu>
+                </p:submenu>
+                
+                <p:submenu label="Categorías" icon="pi pi-cog">
+                    <p:submenu label="Ajax" icon="pi pi-refresh">
+                        <p:menuitem value="Save" action="#{menuView.save}" icon="pi pi-save" update="messages"/>
+                        <p:menuitem value="Update" action="#{menuView.update}" icon="pi pi-refresh" update="messages"/>
+                    </p:submenu>
+                    <p:submenu label="Categorías" icon="pi pi-clone">
+                        <p:menuitem value="Delete" action="#{menuView.delete}" icon="pi pi-times" update="messages" ajax="false"/>
+                    </p:submenu>
+                </p:submenu>
+                
+                <p:submenu label="Historial" icon="pi pi-file">
+                    <p:submenu label="New" icon="pi pi-briefcase">
+                        <p:menuitem value="Project" url="#" />
+                        <p:menuitem value="Other" url="#" />
+                    </p:submenu>
+                    <p:menuitem value="Open" url="#" />
+                    <p:separator />
+                    <p:menuitem value="Quit" url="#" />
+                </p:submenu>
+                
+                <p:submenu label="Ayuda" icon="pi pi-question">
+                    <p:menuitem value="Contents" url="#" />
+                    <p:submenu label="Search" icon="pi pi-search">
+                        <p:submenu label="Text">
+                            <p:menuitem value="Workspace" url="#" />
+                        </p:submenu>
+                        <p:menuitem value="File" url="#" />
+                    </p:submenu>
+                </p:submenu>
+                
+                
+                <p:menuitem value="Iniciar sesión" outcome="login.xhtml" icon="pi pi-times" />
+
+                <f:facet name="options">
+                    <p:inputText style="margin:1px 10px 1px 1px;" placeholder="Buscar..."/>
+                    <p:commandButton type="button" value="Buscar" />
+                </f:facet>
+            </p:menubar>
+        </h:form>
+        
+        
+        
+        <h:form>
+            <p:panelGrid id="grid" columns="3">
+                <p:outputLabel for="user">Correo</p:outputLabel>
+                <p:inputText id="user" value="#{Usuario.correo}" size="20" required="true" requiredMessage="Campo obligatorio"/>
+                <p:message for="user" display="icon"/>
+                
+                
+                <p:outputLabel for="name">Nombre</p:outputLabel>
+                <p:inputText id="name" value="#{Usuario.nombre}" size="20" required="true" requiredMessage="Campo obligatorio"/>
+                <p:message for="name" display="icon"/>
+
+                
+                <p:outputLabel for="password">Contraseña</p:outputLabel>
+                <p:inputText id="password" type="password" value="#{Usuario.contrasena}" size="20" required="true" requiredMessage="Campo obligatorio"/>
+                <p:message for="password" display="icon"/>
+                
+                
+                <p:commandButton value="Registrar" action="#{Usuario.validaUsuario()}" update="grid"/>
+            </p:panelGrid>
+        </h:form>
+    </h:body>
+</html>
