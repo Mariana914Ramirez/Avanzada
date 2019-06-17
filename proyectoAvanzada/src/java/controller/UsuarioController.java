@@ -29,7 +29,8 @@ public class UsuarioController {
         if(us != null)
         {
             correo = us.getCorreo();
-            return "login";
+            nombre = us.getNombre();
+            return "index";
         }
         return "index";
     }
