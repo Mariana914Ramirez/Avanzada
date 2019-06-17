@@ -1,14 +1,28 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
 
     <body>
 
         <ui:composition template="./Templates/plantilla.xhtml">
 
             <ui:define name="content">
-                <h1> Si ves esto, sólo quería decirte que buenas noshis :3 </h1>
+                <b:carousel id="tiovivo" style="width: 100%;" interval="2500">
+                    <b:carouselItem >
+                      <img src="https://s2.best-wallpaper.net/wallpaper/1920x1080/1311/France-Paris-Notre-Dame-de-Paris-river-city-night-lights_1920x1080.jpg" alt="Valladolid" style="width:100%; height: 600px" />
+                      <b:carouselCaption>
+                        <h2>You'll love Valladolid!</h2>
+                      </b:carouselCaption>
+                    </b:carouselItem>
+                    <b:carouselItem caption="Valladolid has a nice central park.">
+                      <img src="https://ae01.alicdn.com/kf/HTB1AP1EOpXXXXb1XVXXq6xXFXXXV/Estrasburgo-Francia-Puente-R-o-Casas-Paisaje-Paisaje-Tela-de-Seda-Impresi-n-Del-Cartel-Decoraci.jpg" alt="Valladolid" style="width:100%; height: 600px" />
+                    </b:carouselItem>
+                    <b:carouselItem caption="Ain't he a beauty?">
+                      <img src="http://es.hdwall365.com/wallpapers/1606/Glass-pyramid-France-Louvre_m.jpg" alt="Valladolid" style="width:100%; height: 600px" />
+                    </b:carouselItem>
+                  </b:carousel>
             </ui:define>
 
         </ui:composition>
