@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 16-06-2019 a las 05:30:02
--- Versión del servidor: 10.3.15-MariaDB
--- Versión de PHP: 7.1.30
+-- Host: 127.0.0.1
+-- Generation Time: Jun 18, 2019 at 07:18 PM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `avanzada`
+-- Database: `avanzada`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categoria`
+-- Table structure for table `categoria`
 --
 
 CREATE TABLE `categoria` (
@@ -36,7 +36,7 @@ CREATE TABLE `categoria` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proyectos`
+-- Table structure for table `proyectos`
 --
 
 CREATE TABLE `proyectos` (
@@ -59,7 +59,7 @@ CREATE TABLE `proyectos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipo_usuario`
+-- Table structure for table `tipo_usuario`
 --
 
 CREATE TABLE `tipo_usuario` (
@@ -68,17 +68,18 @@ CREATE TABLE `tipo_usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `tipo_usuario`
+-- Dumping data for table `tipo_usuario`
 --
 
 INSERT INTO `tipo_usuario` (`id_tipo`, `tipo_usu`) VALUES
 (1, 'admin'),
-(2, 'user');
+(2, 'user'),
+(3, 'verify');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -90,57 +91,69 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `categoria`
+-- Indexes for table `categoria`
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id_categoria`);
 
 --
--- Indices de la tabla `proyectos`
+-- Indexes for table `proyectos`
 --
 ALTER TABLE `proyectos`
   ADD PRIMARY KEY (`id_proyecto`),
   ADD KEY `fk_categoria` (`fk_categoria`);
 
 --
--- Indices de la tabla `tipo_usuario`
+-- Indexes for table `tipo_usuario`
 --
 ALTER TABLE `tipo_usuario`
   ADD PRIMARY KEY (`id_tipo`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`),
   ADD KEY `tipo_usuario` (`tipo_usuario`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT for table `categoria`
+--
+ALTER TABLE `categoria`
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `proyectos`
+--
+ALTER TABLE `proyectos`
+  MODIFY `id_proyecto` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `proyectos`
+-- Constraints for table `proyectos`
 --
 ALTER TABLE `proyectos`
-  ADD CONSTRAINT `proyectos_ibfk_1` FOREIGN KEY (`fk_categoria`) REFERENCES `categoria` (`id_categoria`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `proyectos_ibfk_1` FOREIGN KEY (`fk_categoria`) REFERENCES `categoria` (`id_categoria`);
 
 --
--- Filtros para la tabla `usuarios`
+-- Constraints for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`tipo_usuario`) REFERENCES `tipo_usuario` (`id_tipo`) ON UPDATE CASCADE;

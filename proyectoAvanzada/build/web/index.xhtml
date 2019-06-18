@@ -63,7 +63,7 @@
                 
                 <b:modal id="modalAdmin" title="Agregar Administrador" styleClass="modalAdmin">
                     <h:form>
-                        <h:panelGrid id="grid" columns="3" styleClass="companyHeaderGrid" border="0">
+                        <h:panelGrid id="grid" columns="3" styleClass="companyHeaderGrid" border="0" >
                                 <p:outputLabel for="correo" style="font-size: 25px;">Correo</p:outputLabel>
                                 <p:inputText id="correo" value="#{Usuario.correo}" size="20" required="true" requiredMessage="Campo obligatorio" class="form-control" style="width: 100%; margin: 10px; border-radius: 5px;"/>
                                 <p:message for="correo" display="icon"/>
@@ -77,12 +77,25 @@
                                 <p:message for="contrasena" display="icon"/>
 
                         </h:panelGrid>
-                        <b:commandButton value="Ingresar" action="#{Usuario.agregaAdmin()}" update="grid" class="btn btn-success form-control"  style="align-items: center; width: 15%; margin-top: 15px; font-size: 18px;"/>
+                        <b:button value="Mostrar" id="Mostrar" onclick='checkvalue(this.value)'></b:button>
+                        <b:button value="Quitar" id="Quitar" onclick='checkvalue(this.value)'></b:button>
+                        <b:button id="bttn"></b:button>
+                        <b:commandButton id="close" onchange="checkvalue()" action="#{Usuario.agregaAdmin()}" update="grid" class="btn btn-success form-control" style="align-items: center; width: 15%; margin-top: 15px; font-size: 18px;"> </b:commandButton>
                     </h:form>
                 </b:modal>
             </ui:define>
 
         </ui:composition>
-
+          <h:outputScript library="resources/js" name="modal.js" />
+          <script> 
+            function checkvalue(val)
+            {
+                alert(val);
+               if(val==="Mostrar")
+               document.getElementById('bttn').style.background='#fff';
+                else
+               document.getElementById('bttn').style.background='#000';  
+            }
+          </script>
     </body>
 </html>
