@@ -15,6 +15,9 @@
                 </library>
                 <library dirs="200">
                     <file>${file.reference.BootsFaces-OSP-1.4.1-dist.jar}</file>
+                </library>
+                <library dirs="200">
+                    <file>${file.reference.BootsFaces-OSP-1.4.1-dist.jar-2}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
