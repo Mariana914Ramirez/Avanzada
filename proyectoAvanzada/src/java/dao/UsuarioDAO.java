@@ -70,4 +70,28 @@ public class UsuarioDAO {
         u = validarUsuario(correo, contrasena); 
         return u;
     }
+    
+    
+    public Usuarios agregarAdministrador(String correo, String contrasena, String nombre)
+    {
+        Usuarios u;
+        EntityManager em = emf.createEntityManager();
+        
+        String sql = "INSERT INTO Usuarios (correo, contrasena, nombre, tipo_usuario) VALUES (?, ?, ?, ?);";
+        
+        Query query = em.createNativeQuery(sql);
+        em.getTransaction().begin();
+        query.setParameter(1, correo);
+        query.setParameter(2, contrasena);
+        query.setParameter(3, nombre);
+        query.setParameter(4, 1);
+        
+        
+        query.executeUpdate();
+        
+        em.getTransaction().commit();
+        
+        u = validarUsuario(correo, contrasena); 
+        return u;
+    }
 }

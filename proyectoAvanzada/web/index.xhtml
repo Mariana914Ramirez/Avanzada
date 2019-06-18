@@ -32,7 +32,13 @@
                 
                 
                 <b:column span="3">
-                    <button id="btrigger" class="btn btn-info btn-lg" data-target="#modalCategoria" data-toggle="modal">Trigger (HTML Button)</button>
+                    <button id="btrigger" class="btn btn-info btn-lg" data-target="#modalCategoria" data-toggle="modal">Agregar Categoría</button>
+                </b:column>
+                
+                
+                
+                <b:column span="3">
+                    <button id="btrigger" class="btn btn-info btn-lg" data-target="#modalAdmin" data-toggle="modal">Agregar Administrador</button>
                 </b:column>
                 
                 
@@ -41,17 +47,39 @@
                 
                 
                 
-                <b:modal id="modalCategoria" title="Modal Example" styleClass="modalCategoria">
+                <b:modal id="modalCategoria" title="Agregar Categoría" styleClass="modalCategoria">
                     <h:form>
                         <h:panelGrid id="grid" columns="3" styleClass="companyHeaderGrid" border="0">
                                 <p:outputLabel for="categoria" style="font-size: 25px;">Categoría</p:outputLabel>
-                                <p:inputText id="categoria" value="#{Usuario.correo}" size="20" required="true" requiredMessage="Campo obligatorio" class="form-control" style="width: 100%; margin: 10px; border-radius: 5px;"/>
+                                <p:inputText id="categoria" value="#{Categoria.categoria}" size="20" required="true" requiredMessage="Campo obligatorio" class="form-control" style="width: 100%; margin: 10px; border-radius: 5px;"/>
                                 <p:message for="categoria" display="icon"/>
 
                         </h:panelGrid>
-                        <b:commandButton value="Ingresar" action="#{Usuario.validaLogin()}" update="grid" class="btn btn-success form-control"  style="align-items: center; width: 15%; margin-top: 15px; font-size: 18px;"/>
+                        <b:commandButton value="Ingresar" action="#{Categoria.agregaCategoria()}" update="grid" class="btn btn-success form-control"  style="align-items: center; width: 15%; margin-top: 15px; font-size: 18px;"/>
                     </h:form>
-              </b:modal>
+                </b:modal>
+                
+                
+                
+                <b:modal id="modalAdmin" title="Agregar Administrador" styleClass="modalAdmin">
+                    <h:form>
+                        <h:panelGrid id="grid" columns="3" styleClass="companyHeaderGrid" border="0">
+                                <p:outputLabel for="correo" style="font-size: 25px;">Correo</p:outputLabel>
+                                <p:inputText id="correo" value="#{Usuario.correo}" size="20" required="true" requiredMessage="Campo obligatorio" class="form-control" style="width: 100%; margin: 10px; border-radius: 5px;"/>
+                                <p:message for="correo" display="icon"/>
+                                
+                                <p:outputLabel for="nombre" style="font-size: 25px;">Nombre</p:outputLabel>
+                                <p:inputText id="nombre" value="#{Usuario.nombre}" size="20" required="true" requiredMessage="Campo obligatorio" class="form-control" style="width: 100%; margin: 10px; border-radius: 5px;"/>
+                                <p:message for="nombre" display="icon"/>
+                                
+                                <p:outputLabel for="contrasena" style="font-size: 25px;">Contraseña</p:outputLabel>
+                                <p:inputText type="password" id="contrasena" value="#{Usuario.contrasena}" size="20" required="true" requiredMessage="Campo obligatorio" class="form-control" style="width: 100%; margin: 10px; border-radius: 5px;"/>
+                                <p:message for="contrasena" display="icon"/>
+
+                        </h:panelGrid>
+                        <b:commandButton value="Ingresar" action="#{Usuario.agregaAdmin()}" update="grid" class="btn btn-success form-control"  style="align-items: center; width: 15%; margin-top: 15px; font-size: 18px;"/>
+                    </h:form>
+                </b:modal>
             </ui:define>
 
         </ui:composition>

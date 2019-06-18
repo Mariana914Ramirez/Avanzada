@@ -32,7 +32,7 @@ public class UsuarioController {
             nombre = us.getNombre();
             return "index";
         }
-        return "index";
+        return "error";
     }
     
     
@@ -46,7 +46,21 @@ public class UsuarioController {
             correo = us.getCorreo();
             return "login";
         }
-        return "index";
+        return "error";
+    }
+    
+    
+    public String agregaAdmin()
+    {
+        UsuarioDAO u = new UsuarioDAO();
+        Usuarios us = u.agregarAdministrador(correo, contrasena, nombre);
+        
+        if(us != null)
+        {
+            correo = us.getCorreo();
+            return "index";
+        }
+        return "error";
     }
     
     
