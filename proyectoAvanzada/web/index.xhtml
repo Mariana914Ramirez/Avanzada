@@ -58,37 +58,8 @@
                         <b:commandButton value="Ingresar" action="#{Categoria.agregaCategoria()}" update="grid" class="btn btn-success form-control"  style="align-items: center; width: 15%; margin-top: 15px; font-size: 18px;"/>
                     </h:form>
                 </b:modal>
-                
-                
-                
-               <!--<p:dialog widgetVar="modalAdmin" modal="true" closable="false" id="modalAdmin">
-                    <b:modal id="holitas" title="Agregar Administrador" >
-                    <h:form>
-                        <h:panelGrid id="grid" columns="3" styleClass="companyHeaderGrid" border="0" >
-                                <p:outputLabel for="correo" style="font-size: 25px;">Correo</p:outputLabel>
-                                <p:inputText id="correo" value="#{Usuario.correo}" size="20" required="true" requiredMessage="Campo obligatorio" class="form-control" style="width: 100%; margin: 10px; border-radius: 5px;"/>
-                                <p:message for="correo" display="icon"/>
-                                
-                                <p:outputLabel for="nombre" style="font-size: 25px;">Nombre</p:outputLabel>
-                                <p:inputText id="nombre" value="#{Usuario.nombre}" size="20" required="true" requiredMessage="Campo obligatorio" class="form-control" style="width: 100%; margin: 10px; border-radius: 5px;"/>
-                                <p:message for="nombre" display="icon"/>
-                                
-                                <p:outputLabel for="contrasena" style="font-size: 25px;">Contraseña</p:outputLabel>
-                                <p:inputText type="password" id="contrasena" value="#{Usuario.contrasena}" size="20" required="true" requiredMessage="Campo obligatorio" class="form-control" style="width: 100%; margin: 10px; border-radius: 5px;"/>
-                                <p:message for="contrasena" display="icon"/>
+               
 
-                        </h:panelGrid>
-                        
-                       <p:commandButton value="Cancel" onclick="PF('modalAdmin').hide();$('#formulario').trigger('reset');" type="button" actio>
-
-                    </h:form>
-                </b:modal>
-                </p:dialog>-->
-                
-                
-                
-                
-                
                 
                <b:modal id="modalAdmin" title="Agregar Administrador" closable="true" styleClass="modalAdmin" >
                    <h:form id="formulario">
@@ -106,10 +77,9 @@
                                 <p:message for="contrasena" display="icon"/>
 
                         </h:panelGrid>
-                      
-                        
+                           
                         <b:commandButton id="close" value='Ingresar' oncomplete="$('.modalAdmin').modal('hide')  " action="#{Usuario.agregaAdmin()}"  update="grid" class="btn btn-success form-control" style="align-items: center; width: 15%; margin-top: 15px; font-size: 18px;"> </b:commandButton>
-                        <h:panelGroup id="checkvalue">
+                        <!--<h:panelGroup id="checkvalue">
                             <h:outputScript>
                                 function checkvalue()
                                 {
@@ -117,7 +87,7 @@
                                 }
                               
                             </h:outputScript>
-                        </h:panelGroup> 
+                        </h:panelGroup> -->
                     </h:form>
                 </b:modal>
             </ui:define>
