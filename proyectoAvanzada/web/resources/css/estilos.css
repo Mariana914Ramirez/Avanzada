@@ -1,0 +1,29 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17/06/2019, 07:07:16 PM
+    Author     : BLUE_LIGHT
+*/
+
+.panelNoBorder, .panelNoBorder tr, .panelNoBorder td{
+border: hidden;
+border-color: white;
+}
+
+.espacios tr{
+    margin-top: 20px;
+}
+
+
+.no-border {
+    border-style: hidden !important ; /* or none */
+}
+
+.companyHeaderGrid.ui-panelgrid>*>tr,
+.companyHeaderGrid.ui-panelgrid>*>tr>td {
+    border: none;
+}
+
