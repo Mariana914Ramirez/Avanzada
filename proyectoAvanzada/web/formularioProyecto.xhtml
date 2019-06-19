@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <body>
+
+        <ui:composition template="./Templates/plantilla.xhtml">
+
+            <ui:define name="content">
+                <center>
+                    <h:form>
+
+                        <h1>Crear proyecto</h1>
+                        
+                        
+                        <h:panelGrid id="grid" columns="3" styleClass="companyHeaderGrid" border="0" style="align-content: center;">
+                                <p:outputLabel for="titulo" style="font-size: 20px;">Título</p:outputLabel>
+                                <p:inputText id="titulo" value="#{Proyecto.titulo}" size="20" required="true" requiredMessage="Campo obligatorio" class="form-control" style="width: 600px; margin: 10px; border-radius: 5px; background: #fff;"/>
+                                <p:message for="titulo" display="icon"/>
+                                
+                                
+                                <p:outputLabel for="descripcion" style="font-size: 20px;">Descripción</p:outputLabel>
+                                <p:inputTextarea id="descripcion" value="#{Proyecto.descripcion}" rows="5" required="true" requiredMessage="Campo obligatorio" class="form-control" style="width: 600px; margin: 10px; border-radius: 5px; background: #fff;"/>
+                                <p:message for="descripcion" display="icon"/>
+                                
+                            
+                                <p:outputLabel for="desarrolladores" style="font-size: 20px;">Desarrolladores</p:outputLabel>
+                                <p:inputTextarea id="desarrolladores" value="#{Proyecto.desarrolladores}" rows="3" required="true" requiredMessage="Campo obligatorio" class="form-control" style="width: 600px; margin: 10px; border-radius: 5px; background: #fff;"/>
+                                <p:message for="desarrolladores" display="icon"/>
+                                
+                                <p:outputLabel for="objetivos" style="font-size: 20px;">Objetivos</p:outputLabel>
+                                <p:inputTextarea id="objetivos" value="#{Proyecto.objetivos}" rows="5" required="true" requiredMessage="Campo obligatorio" class="form-control" style="width: 600px; margin: 10px; border-radius: 5px; background: #fff;"/>
+                                <p:message for="objetivos" display="icon"/>
+                                
+                                <p:outputLabel for="fecha_inicio" style="font-size: 20px;">Fecha de inicio</p:outputLabel>
+                                <b:datepicker mode="popup-icon" placeholder="Fecha de inicio" id="fecha_inicio" class="form-control" style="border: none; font-size: 20px;"></b:datepicker>
+                                <p:message for="fecha_inicio" display="icon"/>
+                                
+                                <p:outputLabel for="fecha_termino" style="font-size: 20px;">Fecha de término</p:outputLabel>
+                                <b:datepicker mode="popup-icon" placeholder="Fecha de término" id="fecha_termino" class="form-control" style="border: none; font-size: 20px;"></b:datepicker>
+                                <p:message for="fecha_termino" display="icon"/>
+                                
+                                <p:outputLabel for="imagen" style="font-size: 20px;">Imagen</p:outputLabel>
+                                <p:fileUpload value="#{fileUploadView.file}" mode="simple" id="imagen" class="btn btn-primary"/>
+                                <b:button value="download" icon="upload" /><b:button value="cloud-download" iconAwesome="cloud-download" />
+                            
+                        </h:panelGrid>
+                        
+                        <b:commandButton value="Crear" action="#{Usuario.validaUsuario()}" update="grid" class="btn btn-success form-control"  style="align-items: center; width: 15%; margin-top: 15px; font-size: 18px;"/>
+                        
+                    </h:form>
+                    
+                </center>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
