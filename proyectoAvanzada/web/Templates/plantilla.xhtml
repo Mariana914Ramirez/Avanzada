@@ -9,9 +9,10 @@
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet name="resources/css/default.css"/>
+   <!--     <h:outputStylesheet name="resources/css/default.css"/>
         <h:outputStylesheet name="resources/css/cssLayout.css"/>
         <h:outputStylesheet name="resources/css/estilos.css"/>
+   -->
         <title>Facelets Template</title>
     </h:head>
 
@@ -22,7 +23,7 @@
 
             <ui:insert name="top">
                 <h:form>  
-                    <b:navBar brand="Hola #{Usuario.nombre}" inverse="true" style="width: 100%; margin-bottom: 0px;">
+                    <b:navBar brand="Hola #{Usuario.nombre} #{Usuario.conseguirId()}" inverse="true" style="width: 100%; margin-bottom: 0px;">
                         <b:navbarLinks style="float: left; margin-right: 60px;">
                           <b:navLink value="Inicio" outcome="index.xhtml"></b:navLink>
                           <b:navLink value="Proyectos" href="#"></b:navLink>

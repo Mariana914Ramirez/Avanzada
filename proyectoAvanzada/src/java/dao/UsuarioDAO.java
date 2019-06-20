@@ -6,9 +6,9 @@
 package dao;
 
 import entity.Usuarios;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
@@ -27,21 +27,29 @@ public class UsuarioDAO {
     
     public Usuarios validarUsuario(String correo, String contrasena)
     {
-        Usuarios u;
+      Usuarios u = null;
         EntityManager em = emf.createEntityManager();
-        
-        String sql = "SELECT u FROM Usuarios u WHERE u.correo = :correo AND u.contrasena = :contrasena";
-        
-        Query query = em.createQuery(sql);
-        query.setParameter("correo", correo);
-        query.setParameter("contrasena", contrasena);
-        
+        String sql; 
+
         try{
-            u=(Usuarios) query.getSingleResult();
+            sql = "SELECT u FROM Usuarios u WHERE u.correo = :correo AND u.contrasena = :contrasena";
+            Query query = em.createQuery(sql);
+            query.setParameter("correo", correo);
+            query.setParameter("contrasena", contrasena);
+            List<Usuarios> lista = query.getResultList();
+            if(!lista.isEmpty())
+            {
+                u = lista.get(0);     
+                System.out.println(u);
+                return u;
+            }
         }
-        catch(NoResultException e){
-            u=null;
+        catch(Exception e){
+            throw e;
+        } finally{
+            em.close();
         }
+        
         return u;
     }
     

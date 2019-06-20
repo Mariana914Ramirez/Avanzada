@@ -9,6 +9,7 @@ import dao.CategoriaDAO;
 import dao.UsuarioDAO;
 import entity.Categoria;
 import entity.Usuarios;
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 
 /**
@@ -16,7 +17,7 @@ import javax.faces.bean.ManagedBean;
  * @author jonav
  */
 @ManagedBean(name = "Categoria")
-public class CategoriaController {
+public class CategoriaController implements Serializable{
     private String categoria;
     
     public String agregaCategoria()

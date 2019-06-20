@@ -7,8 +7,12 @@ package controller;
 
 import dao.UsuarioDAO;
 import entity.Usuarios;
+import java.io.Serializable;
+
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -16,7 +20,7 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean(name = "Usuario")
 @SessionScoped
-public class UsuarioController {
+public class UsuarioController  implements Serializable{
     private String correo;
     private String contrasena;
     private String nombre;
@@ -28,11 +32,19 @@ public class UsuarioController {
         
         if(us != null)
         {
+            System.out.println(us);
+            int id_usuario = us.getIdUsuario();
+            System.out.println(id_usuario);
+            FacesContext.getCurrentInstance().getExternalContext().getApplicationMap().put("id_usuario", id_usuario);
             correo = us.getCorreo();
             nombre = us.getNombre();
             return "index";
         }
-        return "error";
+        else
+        {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso", "Valores incorrectos"));
+        }
+        return "login";
     }
     
     
@@ -64,7 +76,17 @@ public class UsuarioController {
     }
     
     
-    
+    public int conseguirId()
+    {
+        int id = 0;
+        try {
+             id = (int) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("id_usuario");
+             System.out.println(id);
+             return id;
+        } catch (Exception e) {
+        }
+     return id;
+    }
     
 
     public String getCorreo() {
