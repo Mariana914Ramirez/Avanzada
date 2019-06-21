@@ -15,11 +15,12 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+
 /**
  *
  * @author BLUE_LIGHT
  */
-@ManagedBean(name = "Usuario")
+@ManagedBean(name = "usuarioController")
 @ApplicationScoped
 public class UsuarioController  implements Serializable{
     private String correo;
@@ -34,8 +35,8 @@ public class UsuarioController  implements Serializable{
         
         if(us != null)
         {
+            FacesContext.getCurrentInstance().getExternalContext().getApplicationMap().put("usuario", us);
             id_usuario = us.getIdUsuario();
-            //FacesContext.getCurrentInstance().getExternalContext().getApplicationMap().put("id_usuario", id_usuario);
             correo = us.getCorreo();
             nombre = us.getNombre();
             

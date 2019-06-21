@@ -21,12 +21,12 @@
                         
                         <h:panelGrid id="grid" columns="3" styleClass="companyHeaderGrid" border="0">
                                 <p:outputLabel for="user" style="font-size: 25px;">Correo</p:outputLabel>
-                                <p:inputText id="user" value="#{Usuario.correo}" size="20" required="true" requiredMessage="Campo obligatorio" class="form-control" style="width: 600px; margin: 10px; border-radius: 5px;"/>
+                                <p:inputText id="user" value="#{usuarioController.correo}" size="20" required="true" requiredMessage="Campo obligatorio" class="form-control" style="width: 600px; margin: 10px; border-radius: 5px;"/>
                                 <p:message for="user" display="icon"/>
                                 
                             
                                 <p:outputLabel for="password" style="font-size: 25px;">Contraseña</p:outputLabel>
-                                <p:inputText id="password" type="password" value="#{Usuario.contrasena}" size="20" required="true" requiredMessage="Campo obligatorio" class="form-control" style="width: 600px; margin: 10px; border-radius: 5px;"/>
+                                <p:inputText id="password" type="password" value="#{usuarioController.contrasena}" size="20" required="true" requiredMessage="Campo obligatorio" class="form-control" style="width: 600px; margin: 10px; border-radius: 5px;"/>
                                 <p:message for="password" display="icon"/>
                             
                             
@@ -35,7 +35,7 @@
                         </h:panelGrid>
                         
                         
-                        <b:commandButton value="Ingresar" action="#{Usuario.validaLogin()}" update="grid" class="btn btn-success form-control"  style="align-items: center; width: 15%; margin-top: 15px; font-size: 18px;"/>
+                        <b:commandButton value="Ingresar" action="#{usuarioController.validaLogin()}" update="grid" class="btn btn-success form-control"  style="align-items: center; width: 15%; margin-top: 15px; font-size: 18px;"/>
                         
                     </h:form>
 
