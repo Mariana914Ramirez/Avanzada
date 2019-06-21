@@ -10,6 +10,7 @@ import entity.Usuarios;
 import java.io.Serializable;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -19,11 +20,12 @@ import javax.faces.context.FacesContext;
  * @author BLUE_LIGHT
  */
 @ManagedBean(name = "Usuario")
-@SessionScoped
+@ApplicationScoped
 public class UsuarioController  implements Serializable{
     private String correo;
     private String contrasena;
     private String nombre;
+    private int id_usuario = 0;
     
     public String validaLogin()
     {
@@ -32,12 +34,11 @@ public class UsuarioController  implements Serializable{
         
         if(us != null)
         {
-            System.out.println(us);
-            int id_usuario = us.getIdUsuario();
-            System.out.println(id_usuario);
-            FacesContext.getCurrentInstance().getExternalContext().getApplicationMap().put("id_usuario", id_usuario);
+            id_usuario = us.getIdUsuario();
+            //FacesContext.getCurrentInstance().getExternalContext().getApplicationMap().put("id_usuario", id_usuario);
             correo = us.getCorreo();
             nombre = us.getNombre();
+            
             return "index";
         }
         else
@@ -75,18 +76,15 @@ public class UsuarioController  implements Serializable{
         return "error";
     }
     
-    
-    public int conseguirId()
-    {
-        int id = 0;
-        try {
-             id = (int) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("id_usuario");
-             System.out.println(id);
-             return id;
-        } catch (Exception e) {
-        }
-     return id;
+    public int getId_usuario() {
+        return id_usuario;
     }
+
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
+    }
+
+    
     
 
     public String getCorreo() {
